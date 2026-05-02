@@ -1,1 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --main: #1b1b1b;
+  --indigo: oklch(58.5% 0.233 277.117);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: 'Inter', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}

@@ -1,2 +1,35 @@
 .page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  padding: 0 24px;
+  border-bottom: 1px solid #dfdfdf;
+
+  .logo {
+    font-size: 32px;
+    line-height: 40px;
+    font-weight: 600;
+    color: var(--main);
+  }
+
+  .links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+  }
+
+  .link {
+    color: var(--main);
+    font-size: 16px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: all 0.15s ease;
+  }
+
+  .link.active {
+    background: var(--indigo);
+    color: white;
+    transition: all 0.15s ease;
+  }
 }

@@ -20,7 +20,7 @@ export const routes: Routes = [
         component: AboutPage,
       },
       {
-        path: 'favotites',
+        path: 'favorite',
         title: 'FC | Favorite Page',
         component: FavoritePage,
       },
