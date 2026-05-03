@@ -8,4 +8,5 @@
 main {
   flex-grow: 1;
   padding: 24px;
+  background: #f7f7f7;
 }
