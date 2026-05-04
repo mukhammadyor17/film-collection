@@ -1,19 +1,37 @@
-import { inject, Injectable } from '@angular/core';
-import { Film } from '../types/film.interface';
+import { computed, inject, Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Film } from '../types/film.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FilmService {
-  films: Film[] = [];
-  favorites: Film[] = [];
-
   private readonly http = inject(HttpClient);
 
-  getFilms() {
-    this.http.get<Film[]>('/film.json').subscribe((value) => {
-      this.films = value;
+  private readonly _films = signal<Film[]>([]);
+  readonly searchQuery = signal('');
+
+  readonly films = computed(() => {
+    const query = this.searchQuery().toLowerCase().trim();
+    if (!query) return this._films();
+    return this._films().filter((film) => film.title.toLowerCase().includes(query));
+  });
+
+  readonly favoriteFilms = computed(() => {
+    return this._films().filter((film) => film.isFavorite);
+  });
+
+  toggleFavorite(id: number): void {
+    this._films.update((films) =>
+      films.map((film) => {
+        return film.id === id ? { ...film, isFavorite: !film.isFavorite } : film;
+      }),
+    );
+  }
+
+  loadFilms(): void {
+    this.http.get<Film[]>('/film.json').subscribe((films) => {
+      this._films.set(films);
     });
   }
 }
