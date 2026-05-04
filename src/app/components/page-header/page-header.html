@@ -5,6 +5,11 @@
   <div class="links">
     <a class="link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home </a>
     <a class="link" routerLink="/about" routerLinkActive="active">About </a>
-    <a class="link" routerLink="/favorite" routerLinkActive="active">Favorites </a>
+    <a class="link" routerLink="/favorite" routerLinkActive="active">
+      Favorites
+      @if(filmService.favoriteFilms().length > 0) {
+      <span class="count">{{filmService.favoriteFilms().length}}</span>
+      }
+    </a>
   </div>
 </header>

@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { FilmService } from '../../services/film.service';
 
 @Component({
   selector: 'app-page-header',
@@ -7,4 +8,8 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   templateUrl: './page-header.html',
   styleUrl: './page-header.css',
 })
-export class PageHeader {}
+export class PageHeader {
+  readonly filmService = inject(FilmService);
+
+  count = 5;
+}
