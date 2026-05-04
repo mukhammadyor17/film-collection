@@ -19,3 +19,9 @@ body {
 a {
   text-decoration: none;
 }
+
+.film-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
