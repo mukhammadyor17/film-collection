@@ -1,4 +1,4 @@
-<div class="film-card">
+<div class="film-card" (click)="goDetailPage()">
   <div class="film-card__poster">
     <img [src]="film.posterUrl" [alt]="film.title" />
     <button class="film-card__fav" [class.is-active]="film.isFavorite" (click)="toggleFavorite($event)">
