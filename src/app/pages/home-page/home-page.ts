@@ -3,10 +3,11 @@ import { FilmService } from '../../services/film.service';
 import { FilmCard } from '../../components/film-card/film-card';
 import { Film } from '../../types/film.interface';
 import { NoResult } from '../../components/no-result/no-result';
+import { Focus } from '../../directives/focus.directive';
 
 @Component({
   selector: 'app-home-page',
-  imports: [FilmCard, NoResult],
+  imports: [FilmCard, NoResult, Focus],
   templateUrl: './home-page.html',
   styleUrl: './home-page.css',
 })
