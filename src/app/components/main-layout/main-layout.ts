@@ -6,7 +6,7 @@ import { Breadcrumb } from '../breadcrumb/breadcrumb';
 
 @Component({
   selector: 'app-main-layout',
-  imports: [RouterOutlet, PageHeader, PageFooter],
+  imports: [RouterOutlet, PageHeader, PageFooter, Breadcrumb],
   templateUrl: './main-layout.html',
   styleUrl: './main-layout.css',
 })

@@ -1,4 +1,4 @@
-<nav>
+<nav class="breadcrumb">
   @for (item of breadcrumbService.breadcrumbs(); let last = $last; track $index) {
   @if (!last) {
   <a [routerLink]="item.url">{{ item.label }}</a>

@@ -9,6 +9,7 @@ export class FilmService {
   private readonly http = inject(HttpClient);
 
   private readonly _films = signal<Film[]>([]);
+  private readonly _loaded = signal(false);
   readonly searchQuery = signal('');
 
   readonly films = computed(() => {
@@ -29,9 +30,15 @@ export class FilmService {
     );
   }
 
+  getFilmById(id: number): Film | undefined {
+    return this._films().find((f) => f.id === id);
+  }
+
   loadFilms(): void {
+    if (this._loaded()) return;
     this.http.get<Film[]>('/film.json').subscribe((films) => {
       this._films.set(films);
+      this._loaded.set(true);
     });
   }
 }
