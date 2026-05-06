@@ -1,1 +1,8 @@
-<p>favorite-page works!</p>
+<div class="film-list">
+  @for (item of filmService.favoriteFilms(); track item.id) {
+  <app-film-card [film]="item" (toggleFavoriteEvent)="toggleFavorite($event)"></app-film-card>
+  }
+  @empty {
+  <app-no-result></app-no-result>
+  }
+</div>

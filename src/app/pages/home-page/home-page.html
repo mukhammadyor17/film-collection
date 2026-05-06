@@ -1,1 +1,13 @@
-<p>home-page works!</p>
+<div class="search-bar">
+  <input appFocus type="text" placeholder="Search film..." [value]="filmService.searchQuery()"
+    (input)="onSearch($event)" />
+</div>
+
+<div class="film-list">
+  @for (item of filmService.films(); track item.id) {
+  <app-film-card [film]="item" (toggleFavoriteEvent)="toggleFavorite($event)"></app-film-card>
+  }
+  @empty {
+  <app-no-result></app-no-result>
+  }
+</div>
